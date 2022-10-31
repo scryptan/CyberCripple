@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/unity,csharp,rider,visualstudiocode,vim
-# Edit at https://www.toptal.com/developers/gitignore?templates=unity,csharp,rider,visualstudiocode,vim
+# Created by https://www.toptal.com/developers/gitignore/api/rider,unity,csharp
+# Edit at https://www.toptal.com/developers/gitignore?templates=rider,unity,csharp
 
 ### Csharp ###
 ## Ignore Visual Studio temporary files, build results, and
@@ -541,37 +541,4 @@ sysinfo.txt
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
-### Vim ###
-# Swap
-[._]*.s[a-v][a-z]
-!*.svg  # comment out if you don't need vector files
-[._]*.sw[a-p]
-[._]s[a-rt-v][a-z]
-[._]ss[a-gi-z]
-[._]sw[a-p]
-
-# Session
-Session.vim
-Sessionx.vim
-
-# Temporary
-.netrwhist
-# Auto-generated tag files
-tags
-# Persistent undo
-[._]*.un~
-
-### VisualStudioCode ###
-!.vscode/*.code-snippets
-
-# Local History for Visual Studio Code
-
-# Built Visual Studio Code Extensions
-*.vsix
-
-### VisualStudioCode Patch ###
-# Ignore all local history of files
-.history
-.ionide
-
-# End of https://www.toptal.com/developers/gitignore/api/unity,csharp,rider,visualstudiocode,vim
+# End of https://www.toptal.com/developers/gitignore/api/rider,unity,csharp
