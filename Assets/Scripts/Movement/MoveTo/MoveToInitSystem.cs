@@ -1,17 +1,16 @@
-﻿using CyberCripple.Movement;
-using Leopotam.EcsLite;
+﻿using Leopotam.EcsLite;
 using UnityEngine;
 
-namespace CyberCripple
+namespace CyberCripple.Movement.MoveTo
 {
-    public class MovementInitSystem : IEcsInitSystem
+    public class MoveToInitSystem : IEcsInitSystem
     {
         public void Init(IEcsSystems systems)
         {
             var world = systems.GetWorld();
-            var movementMBs = Object.FindObjectsOfType<MovementMB>();
+            var movementMBs = Object.FindObjectsOfType<MoveToMB>();
 
-            var movementComponents = world.GetPool<MovementComponent>();
+            var movementComponents = world.GetPool<MoveToComponent>();
             var positionComponents = world.GetPool<PositionComponent>();
 
             foreach (var movementMb in movementMBs)

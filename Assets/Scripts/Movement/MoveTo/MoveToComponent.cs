@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace CyberCripple.Movement
+namespace CyberCripple.Movement.MoveTo
 {
-    public struct MovementComponent
+    public struct MoveToComponent
     {
         public Transform Target;
         public float Speed;

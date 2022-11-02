@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace CyberCripple.Components.Folder
+namespace CyberCripple.Door
 {
     public class DoorComponent
     {

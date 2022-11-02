@@ -1,4 +1,5 @@
 using CyberCripple.Movement;
+using CyberCripple.Movement.MoveTo;
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using UnityEngine;
@@ -15,8 +16,9 @@ namespace CyberCripple
             _world = new EcsWorld();
             _systems = new EcsSystems(_world);
             _systems
-                .Add(new MovementInitSystem())
-                .Add(new MovementSystem())
+                .Add(new MoveToInitSystem())
+                .Add(new MoveToSystem())
+                .Add(new MoveDirectionSystem())
 #if UNITY_EDITOR
                 .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem())
 #endif

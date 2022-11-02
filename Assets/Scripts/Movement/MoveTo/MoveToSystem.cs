@@ -2,24 +2,26 @@
 using Leopotam.EcsLite.Di;
 using UnityEngine;
 
-namespace CyberCripple.Movement
+namespace CyberCripple.Movement.MoveTo
 {
-    public class MovementSystem : IEcsRunSystem
+    public class MoveToSystem : IEcsRunSystem
     {
-        private readonly EcsPoolInject<MovementComponent> _movementComponents = default;
+        private readonly EcsPoolInject<MoveToComponent> _moveToComponents = default;
         private readonly EcsPoolInject<PositionComponent> _positionComponents = default;
+        private readonly EcsPoolInject<MoveDirectionComponent> _moveDirectionComponents = default;
 
         public void Run(IEcsSystems systems)
         {
             var world = systems.GetWorld();
             var entities = world
-                .Filter<MovementComponent>()
+                .Filter<MoveToComponent>()
                 .Inc<PositionComponent>()
+                .Exc<MoveDirectionComponent>()
                 .End();
 
             foreach (var entity in entities)
             {
-                ref var movement = ref _movementComponents.Value.Get(entity);
+                ref var movement = ref _moveToComponents.Value.Get(entity);
                 ref var position = ref _positionComponents.Value.Get(entity);
 
                 var startPosition = position.Position.position;
@@ -27,12 +29,13 @@ namespace CyberCripple.Movement
 
                 if (Vector3.Distance(startPosition, targetPosition) < 0.1f)
                 {
-                    _movementComponents.Value.Del(entity);
+                    _moveToComponents.Value.Del(entity);
                     continue;
                 }
 
-                position.Position.Translate((targetPosition - startPosition).normalized * movement.Speed *
-                                            Time.deltaTime);
+                ref var moveDirectionComponent = ref _moveDirectionComponents.Value.Add(entity);
+                moveDirectionComponent.Direction = (targetPosition - startPosition).normalized;
+                moveDirectionComponent.Speed = 5;
             }
         }
     }
